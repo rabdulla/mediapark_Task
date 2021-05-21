@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CountryHolidays_API.Models
+﻿namespace CountryHolidays_API.Models
 {
     public enum DayOfWeek
     {

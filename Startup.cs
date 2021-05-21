@@ -1,13 +1,13 @@
-﻿using CountryHolidays_API.Services;
+﻿using AutoMapper;
+using CountryHolidays_API.Entities;
+using CountryHolidays_API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using CountryHolidays_API.Entities;
-using Microsoft.EntityFrameworkCore;
-using AutoMapper;
 
 namespace CountryHolidays_API
 {
@@ -27,8 +27,8 @@ namespace CountryHolidays_API
 
             services.AddHttpClient<IHolidayService, HolidayService>("holiday",
                 c => { c.BaseAddress = new Uri("https://kayaposoft.com/enrico/json/v2.0?action="); });
-            
-            
+
+
             services.AddDbContext<CountryHolidaysContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddSwaggerDocument();
