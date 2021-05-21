@@ -11,7 +11,7 @@ namespace CountryHolidays_API.Entities
         }
 
         public DbSet<Country> Countries { get; set; }
-        public DbSet<Date> FromToDate { get; set; }
+        public DbSet<HolidaysForYear> HolidaysForYear { get; set; }
         public DbSet<Holiday> Holidays { get; set; }
     }
 }

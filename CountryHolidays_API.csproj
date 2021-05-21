@@ -23,8 +23,36 @@
     <Compile Remove="Migrations\20210512125529_FirstMigration.Designer.cs" />
     <Compile Remove="Migrations\20210512125824_FirstMigration.cs" />
     <Compile Remove="Migrations\20210512125824_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210512130902_FirstMigration.cs" />
+    <Compile Remove="Migrations\20210512130902_FirstMigration.Designer.cs" />
     <Compile Remove="Migrations\20210512131301_Added_CountryFullname.cs" />
     <Compile Remove="Migrations\20210512131301_Added_CountryFullname.Designer.cs" />
+    <Compile Remove="Migrations\20210512152146_Added_CountryFullname.cs" />
+    <Compile Remove="Migrations\20210512152146_Added_CountryFullname.Designer.cs" />
+    <Compile Remove="Migrations\20210512170829_Added_HolidayFullname.cs" />
+    <Compile Remove="Migrations\20210512170829_Added_HolidayFullname.Designer.cs" />
+    <Compile Remove="Migrations\20210513104843_FirstMigration.cs" />
+    <Compile Remove="Migrations\20210513104843_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210513163759_FirstMigration.cs" />
+    <Compile Remove="Migrations\20210513163759_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210513164143_FirstMigration.cs" />
+    <Compile Remove="Migrations\20210513164143_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210513170500_FirstMigration.cs" />
+    <Compile Remove="Migrations\20210513170500_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210513172247_FirstMigration.cs" />
+    <Compile Remove="Migrations\20210513172247_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210513174809_FirstMigration.cs" />
+    <Compile Remove="Migrations\20210513174809_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210513204229_firstMigration.cs" />
+    <Compile Remove="Migrations\20210513204229_firstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210514131209_firstMigration.cs" />
+    <Compile Remove="Migrations\20210514131209_firstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210515092027_FirstMigration.cs" />
+    <Compile Remove="Migrations\20210515092027_FirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210516093525_firstMigraton.cs" />
+    <Compile Remove="Migrations\20210516093525_firstMigraton.Designer.cs" />
+    <Compile Remove="Migrations\20210518073715_ModifiedDate.cs" />
+    <Compile Remove="Migrations\20210518073715_ModifiedDate.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

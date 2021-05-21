@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
-using CountryHolidays_API.Models;
 
 namespace CountryHolidays_API.Entities
 {
@@ -18,9 +14,9 @@ namespace CountryHolidays_API.Entities
         public string FullName { get; set; }
         [MaxLength(25)]
         public string CountryCode { get; set; }
-        public Date FromDate { get; set; }
-        public Date ToDate { get; set; }
-        public string HolidayName { get; set; }
+        public string HolidayType { get; set; }
+        public DateTime FromDate { get; set; }
+        public DateTime ToDate { get; set; }
 
     }
 }

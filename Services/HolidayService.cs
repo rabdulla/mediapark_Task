@@ -1,8 +1,8 @@
 ﻿using CountryHolidays_API.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -10,9 +10,9 @@ namespace CountryHolidays_API.Services
 {
     public interface IHolidayService
     {
-        Task<List<IGrouping<int, Holiday>>> GetHolidaysForYear(int year, string country, string holidayType);
+        Task<List<Holiday>> GetHolidaysForYear(int year, string country, string holidayType);
         Task<List<Country>> GetSupportedCountries();
-        Task<List<Country>> GetPublicHoliday(int day, int month, int year);
+        Task<Holiday> GetPublicHoliday(int day, int month, int year, string countryCode);
 
     }
     public class HolidayService : IHolidayService
@@ -24,10 +24,11 @@ namespace CountryHolidays_API.Services
             _httpClient = httpClient;
         }
 
-        public async Task<List<IGrouping<int, Holiday>>> GetHolidaysForYear(int year, string country,
+
+        public async Task<List<Holiday>> GetHolidaysForYear(int year, string countryCode,
             string holidayType)
         {
-            var url = new Uri($"{_httpClient.BaseAddress}getHolidaysForYear&year={year}&country={country}&holidayType={holidayType}");
+            var url = new Uri($"{_httpClient.BaseAddress}getHolidaysForYear&year={year}&country={countryCode}&holidayType={holidayType}");
 
             var response = await _httpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
@@ -36,9 +37,7 @@ namespace CountryHolidays_API.Services
 
             var obj = JsonConvert.DeserializeObject<List<Holiday>>(content);
 
-            var groupByMonth= obj.GroupBy(x => x.Date.Month).ToList();
-
-            return groupByMonth;
+            return obj;
         }
 
         public async Task<List<Country>> GetSupportedCountries()
@@ -54,10 +53,10 @@ namespace CountryHolidays_API.Services
             return obj;
         }
 
-        public async Task<List<Country>> GetPublicHoliday(int day, int month, int year)
+        public async Task<Holiday> GetPublicHoliday(int day, int month, int year, string countryCode)
         {
-            List<Country> obj = null;
-            var url = new Uri($"{_httpClient.BaseAddress}whereIsPublicHoliday&date={day}-{month}-{year}");
+            Holiday obj ;
+            var url = new Uri($"{_httpClient.BaseAddress}isPublicHoliday&date={day}-{month}-{year}&country={countryCode}");
 
             var response = await _httpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
@@ -65,7 +64,7 @@ namespace CountryHolidays_API.Services
             try
             {
                 var content = await response.Content.ReadAsStringAsync();
-                obj = JsonConvert.DeserializeObject<List<Country>>(content);
+                obj = JsonConvert.DeserializeObject<Holiday>(content);
             }
             catch (Exception e)
             {
