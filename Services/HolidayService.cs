@@ -1,6 +1,5 @@
 ﻿using CountryHolidays_API.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -55,22 +54,16 @@ namespace CountryHolidays_API.Services
 
         public async Task<Holiday> GetPublicHoliday(int day, int month, int year, string countryCode)
         {
-            Holiday obj ;
+            Holiday obj;
             var url = new Uri($"{_httpClient.BaseAddress}isPublicHoliday&date={day}-{month}-{year}&country={countryCode}");
 
             var response = await _httpClient.GetAsync(url);
+
             response.EnsureSuccessStatusCode();
 
-            try
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                obj = JsonConvert.DeserializeObject<Holiday>(content);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            var content = await response.Content.ReadAsStringAsync();
+
+            obj = JsonConvert.DeserializeObject<Holiday>(content);
 
             return obj;
 
